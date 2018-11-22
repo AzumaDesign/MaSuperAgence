@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Property{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron">
+    <div class="container">
+            <div class="row">
+                    <div class="col-md-8">
+            
+                    </div>
+                    <div class="col-md-4">
+                        <h1>{{ property.title }}</h1>
+                        <h2>{{ property.rooms }} pièces - {{ property.surface }}</h2>
+                        <div class="text-primary" style="font-size:4rem;font-weight:bold;">{{ property.getFormattedPrice }} €</div>
+                        <a href="#" class="btn btn-primary">Contacter l'agence</a>
+                    </div>
+                    
+                </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+
+
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Caractéristiques</h2>
+                <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Surface habitable</th>
+                                <td>{{ property.surface | nl2br}}</td>
+                            </tr>
+                            <tr>
+                                <th>Surface</th>
+                                <td>{{ property.surface }}</td>
+                            </tr>
+                            <tr>
+                                <th>Pièces</th>
+                                <td>{{ property.rooms }}</td>
+                            </tr>
+                            <tr>
+                                <th>Chambre</th>
+                                <td>{{ property.bedrooms }}</td>
+                            </tr>
+                            <tr>
+                                <th>Etage</th>
+                                <td>{{ property.floor }}</td>
+                            </tr>
+                            <tr>
+                                <th>Chauffage</th>
+                                <td>{{ property.heatType }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+        <div class="col-md-4">
+            <h2>Spécificités</h2>
+        </div>
+    </div>
+
+  
+    <a href="{{ path('property_index') }}">back to list</a>
+
+    <a href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
+
+    {{ include('property/_delete_form.html.twig') }}
+</div>
+
+{% endblock %}

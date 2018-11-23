@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-md-4">
                         <h1>{{ property.title }}</h1>
-                        <h2>{{ property.rooms }} pièces - {{ property.surface }}</h2>
+                        <h2>{{ property.rooms }} pièces - {{ property.surface }} m&sup2;</h2>
                         <div class="text-primary" style="font-size:4rem;font-weight:bold;">{{ property.getFormattedPrice }} €</div>
                         <a href="#" class="btn btn-primary">Contacter l'agence</a>
                     </div>
@@ -65,7 +65,7 @@
 
   
     <a href="{{ path('property_index') }}">back to list</a>
-
+    |
     <a href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
 
     {{ include('property/_delete_form.html.twig') }}
